@@ -2,6 +2,7 @@ package com.github.krazune.esstudy.quotes;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.elasticsearch._types.ElasticsearchException;
+import co.elastic.clients.elasticsearch._types.Refresh;
 import co.elastic.clients.elasticsearch._types.mapping.DynamicMapping;
 import co.elastic.clients.elasticsearch._types.mapping.TypeMapping;
 import co.elastic.clients.elasticsearch.core.IndexResponse;
@@ -25,8 +26,8 @@ public class Application
 	protected static final String ES_HOST = "localhost";
 	protected static final int ES_PORT = 9200;
 	protected static final String INDEX_NAME = "quotes";
-	protected static final int RANDOM_DOCUMENT_INDICES = 5;
-	protected static final int MATCH_ALL_LIMIT = 3;
+	protected static final int RANDOM_DOCUMENT_INDICES = 10;
+	protected static final int MATCH_ALL_LIMIT = 10;
 	protected static final int MATCH_LIMIT = 5;
 
 	public static void main(String[] args) throws IOException
@@ -103,6 +104,7 @@ public class Application
 			IndexResponse indexResponse = esClient.index(
 				irb -> irb
 					.index(INDEX_NAME)
+					.refresh(Refresh.True) // Refreshes the affected shards to make this operation visible to search. WaitFor would take too long to index all documents.
 					.document(RandomQuoteGenerator.getQuote())
 			);
 
