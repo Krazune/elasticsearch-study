@@ -9,6 +9,7 @@
 	<modules>
 		<module>quotes</module>
 		<module>commons</module>
+		<module>unstructured-documents</module>
 	</modules>
 	<groupId>com.github.krazune.esstudy</groupId>
 	<artifactId>elasticsearch-study</artifactId>
