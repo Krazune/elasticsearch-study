@@ -1,6 +1,6 @@
-package com.github.krazune.esstudy.randoms.text;
+package com.github.krazune.esstudy.random.text;
 
-import com.github.krazune.esstudy.randoms.RandomPicker;
+import com.github.krazune.esstudy.random.RandomPicker;
 
 import java.util.List;
 

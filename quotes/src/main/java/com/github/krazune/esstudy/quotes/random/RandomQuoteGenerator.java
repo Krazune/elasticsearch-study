@@ -1,8 +1,8 @@
-package com.github.krazune.esstudy.quotes.randoms;
+package com.github.krazune.esstudy.quotes.random;
 
-import com.github.krazune.esstudy.quotes.documents.Quote;
-import com.github.krazune.esstudy.randoms.text.RandomGibberishGenerator;
-import com.github.krazune.esstudy.randoms.text.RandomNameGenerator;
+import com.github.krazune.esstudy.quotes.document.Quote;
+import com.github.krazune.esstudy.random.text.RandomGibberishGenerator;
+import com.github.krazune.esstudy.random.text.RandomNameGenerator;
 
 public class RandomQuoteGenerator
 {

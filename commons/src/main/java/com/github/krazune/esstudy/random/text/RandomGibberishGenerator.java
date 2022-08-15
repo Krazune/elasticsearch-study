@@ -1,4 +1,4 @@
-package com.github.krazune.esstudy.randoms.text;
+package com.github.krazune.esstudy.random.text;
 
 import java.util.Random;
 

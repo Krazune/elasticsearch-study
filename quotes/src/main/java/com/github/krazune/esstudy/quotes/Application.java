@@ -13,9 +13,9 @@ import co.elastic.clients.elasticsearch.indices.ElasticsearchIndicesClient;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
-import com.github.krazune.esstudy.quotes.documents.Quote;
-import com.github.krazune.esstudy.quotes.randoms.RandomQuoteGenerator;
-import com.github.krazune.esstudy.randoms.text.RandomWordGenerator;
+import com.github.krazune.esstudy.quotes.document.Quote;
+import com.github.krazune.esstudy.quotes.random.RandomQuoteGenerator;
+import com.github.krazune.esstudy.random.text.RandomWordGenerator;
 import org.apache.http.HttpHost;
 import org.elasticsearch.client.RestClient;
 

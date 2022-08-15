@@ -1,4 +1,4 @@
-package com.github.krazune.esstudy.quotes.documents;
+package com.github.krazune.esstudy.quotes.document;
 
 public class Quote
 {
