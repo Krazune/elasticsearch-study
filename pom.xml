@@ -10,6 +10,7 @@
 		<module>quotes</module>
 		<module>commons</module>
 		<module>unstructured-documents</module>
+		<module>products</module>
 	</modules>
 	<groupId>com.github.krazune.esstudy</groupId>
 	<artifactId>elasticsearch-study</artifactId>
