@@ -34,4 +34,17 @@ public class Task
 	{
 		this.actions = actions;
 	}
+
+	@Override
+	public String toString()
+	{
+		String taskString = "Goal: " + goal + '\n';
+
+		for (int i = 0; i < actions.size(); ++i)
+		{
+			taskString += actions.get(i).toString() + '\n';
+		}
+
+		return taskString;
+	}
 }

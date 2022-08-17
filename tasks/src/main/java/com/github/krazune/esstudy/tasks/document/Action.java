@@ -32,4 +32,10 @@ public class Action
 	{
 		isComplete = complete;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Description: " + description + "\nIs complete: " + isComplete;
+	}
 }
