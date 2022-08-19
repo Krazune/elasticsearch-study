@@ -34,7 +34,7 @@ public class Application
 		"have, possess"
 	);
 	private static final String MATCH_QUERY = "solo possess";
-	private static final int MATCH_QUERY_LIMIT = 2;
+	private static final int MATCH_QUERY_SIZE = 2;
 	private static final int RANGE_QUERY_MINIMUM = 650;
 	private static final int RANGE_QUERY_MAXIMUM = 775;
 	private static final String TAG_SALES_TERMS_AGGREGATION_NAME = "my_tag_sales_terms_aggregation";
@@ -159,12 +159,12 @@ public class Application
 	private static void queryMatch(RestClientTransport transport) throws IOException
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
-		System.out.println("Matching all " + MATCH_QUERY_LIMIT + " first documents, with a quote that matches the search \"" + MATCH_QUERY + "\".");
+		System.out.println("Matching all " + MATCH_QUERY_SIZE + " first documents, with a quote that matches the search \"" + MATCH_QUERY + "\".");
 
 		SearchResponse<Product> matchDocuments = esClient.search(
 			srb -> srb
 				.index(INDEX_NAME)
-				.size(MATCH_QUERY_LIMIT)
+				.size(MATCH_QUERY_SIZE)
 				.explain(true)
 				.query(
 					qb -> qb

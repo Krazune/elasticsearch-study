@@ -24,7 +24,7 @@ public class Application
 	private static final int RANDOM_DOCUMENT_INDICES = 100;
 	private static final String GOAL_QUERY_TERM = "good";
 	private static final String ACTION_QUERY_TERM = "bad";
-	private static final int NESTED_QUERY_LIMIT = 5;
+	private static final int NESTED_QUERY_SIZE = 5;
 
 	public static void main(String[] args) throws IOException
 	{
@@ -110,12 +110,12 @@ public class Application
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 
-		System.out.println("Matching all " + NESTED_QUERY_LIMIT + " first documents.");
+		System.out.println("Matching all " + NESTED_QUERY_SIZE + " first documents.");
 
 		SearchResponse<Task> matchAllDocuments = esClient.search(
 			srb -> srb
 				.index(INDEX_NAME)
-				.size(NESTED_QUERY_LIMIT)
+				.size(NESTED_QUERY_SIZE)
 				.query(
 					qb0 -> qb0
 						.bool(

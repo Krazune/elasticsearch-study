@@ -23,8 +23,8 @@ public class Application
 {
 	private static final String INDEX_NAME = "quotes";
 	private static final int RANDOM_DOCUMENT_INDICES = 10;
-	private static final int MATCH_ALL_LIMIT = 10;
-	private static final int MATCH_LIMIT = 5;
+	private static final int MATCH_ALL_SIZE = 10;
+	private static final int MATCH_SIZE = 5;
 
 	public static void main(String[] args) throws IOException
 	{
@@ -104,12 +104,12 @@ public class Application
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 
-		System.out.println("Matching all " + MATCH_ALL_LIMIT + " first documents.");
+		System.out.println("Matching all " + MATCH_ALL_SIZE + " first documents.");
 
 		SearchResponse<Quote> matchAllDocuments = esClient.search(
 			srb -> srb
 				.index(INDEX_NAME)
-				.size(MATCH_ALL_LIMIT)
+				.size(MATCH_ALL_SIZE)
 				.query(
 					qb -> qb
 						.matchAll(maqb -> maqb)
@@ -129,12 +129,12 @@ public class Application
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 		String matchWord = RandomWordGenerator.getWord();
-		System.out.println("Matching all " + MATCH_LIMIT + " first documents, with a quote that matches the word \"" + matchWord + "\".");
+		System.out.println("Matching all " + MATCH_SIZE + " first documents, with a quote that matches the word \"" + matchWord + "\".");
 
 		SearchResponse<Quote> matchDocuments = esClient.search(
 			srb -> srb
 				.index(INDEX_NAME)
-				.size(MATCH_LIMIT)
+				.size(MATCH_SIZE)
 				.explain(true)
 				.query(
 					qb -> qb

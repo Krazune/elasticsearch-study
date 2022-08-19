@@ -26,7 +26,7 @@ public class Application
 	private static final String INDEX_NAME = "unstructored_documents";
 	private static final int RANDOM_DOCUMENT_INDICES = 10;
 	private static final String DELETE_DOCUMENT_ID = "3";
-	private static final int MATCH_ALL_LIMIT = 2;
+	private static final int MATCH_ALL_SIZE = 2;
 	private static final int MATCH_ALL_PAGES = 5;
 
 	public static void main(String[] args) throws IOException, ExecutionException, InterruptedException
@@ -125,11 +125,11 @@ public class Application
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 
-		System.out.println("Matching all " + MATCH_ALL_PAGES + " first pages, " + MATCH_ALL_LIMIT + " documents per page.");
+		System.out.println("Matching all " + MATCH_ALL_PAGES + " first pages, " + MATCH_ALL_SIZE + " documents per page.");
 
 		for (int i = 0; i < MATCH_ALL_PAGES; ++i)
 		{
-			final int from = i * MATCH_ALL_LIMIT;
+			final int from = i * MATCH_ALL_SIZE;
 
 			System.out.println("Page " + i);
 
@@ -137,7 +137,7 @@ public class Application
 				srb -> srb
 					.index(INDEX_NAME)
 					.from(from)
-					.size(MATCH_ALL_LIMIT)
+					.size(MATCH_ALL_SIZE)
 					.query(
 						qb -> qb
 							.matchAll(maqb -> maqb)
