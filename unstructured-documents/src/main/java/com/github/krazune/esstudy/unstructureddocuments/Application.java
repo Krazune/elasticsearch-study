@@ -10,12 +10,10 @@ import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
 import co.elastic.clients.elasticsearch.indices.ElasticsearchIndicesClient;
-import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
+import com.github.krazune.esstudy.helper.EsHelper;
 import com.github.krazune.esstudy.unstructureddocuments.random.RandomDocumentObject;
-import org.apache.http.HttpHost;
-import org.elasticsearch.client.RestClient;
 
 import java.io.IOException;
 import java.util.LinkedList;
@@ -25,8 +23,6 @@ import java.util.concurrent.ExecutionException;
 
 public class Application
 {
-	private static final String ES_HOST = "localhost";
-	private static final int ES_PORT = 9200;
 	private static final String INDEX_NAME = "unstructored_documents";
 	private static final int RANDOM_DOCUMENT_INDICES = 10;
 	private static final String DELETE_DOCUMENT_ID = "3";
@@ -35,7 +31,7 @@ public class Application
 
 	public static void main(String[] args) throws IOException, ExecutionException, InterruptedException
 	{
-		try (RestClientTransport transport = createTransport())
+		try (RestClientTransport transport = EsHelper.createTransport())
 		{
 			createIndex(transport);
 			indexDocuments(transport);
@@ -60,16 +56,6 @@ public class Application
 		System.out.println("Response:" + deleteResponse.toString());
 
 		System.out.println();
-	}
-
-	private static RestClientTransport createTransport()
-	{
-		return new RestClientTransport(
-			RestClient.builder(
-				new HttpHost(ES_HOST, ES_PORT)
-			).build(),
-			new JacksonJsonpMapper()
-		);
 	}
 
 	private static void createIndex(ElasticsearchTransport transport) throws IOException

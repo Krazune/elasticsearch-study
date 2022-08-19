@@ -10,21 +10,17 @@ import co.elastic.clients.elasticsearch.core.SearchResponse;
 import co.elastic.clients.elasticsearch.core.search.Hit;
 import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
 import co.elastic.clients.elasticsearch.indices.ElasticsearchIndicesClient;
-import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
+import com.github.krazune.esstudy.helper.EsHelper;
 import com.github.krazune.esstudy.quotes.document.Quote;
 import com.github.krazune.esstudy.quotes.random.RandomQuoteGenerator;
 import com.github.krazune.esstudy.random.text.RandomWordGenerator;
-import org.apache.http.HttpHost;
-import org.elasticsearch.client.RestClient;
 
 import java.io.IOException;
 
 public class Application
 {
-	private static final String ES_HOST = "localhost";
-	private static final int ES_PORT = 9200;
 	private static final String INDEX_NAME = "quotes";
 	private static final int RANDOM_DOCUMENT_INDICES = 10;
 	private static final int MATCH_ALL_LIMIT = 10;
@@ -32,23 +28,13 @@ public class Application
 
 	public static void main(String[] args) throws IOException
 	{
-		try (RestClientTransport transport = createTransport())
+		try (RestClientTransport transport = EsHelper.createTransport())
 		{
 			createIndex(transport);
 			indexDocuments(transport);
 			queryMatchAll(transport);
 			queryMatch(transport);
 		}
-	}
-
-	private static RestClientTransport createTransport()
-	{
-		return new RestClientTransport(
-			RestClient.builder(
-				new HttpHost(ES_HOST, ES_PORT)
-			).build(),
-			new JacksonJsonpMapper()
-		);
 	}
 
 	private static TypeMapping createTypeMapping()

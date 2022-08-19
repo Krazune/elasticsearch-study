@@ -14,21 +14,17 @@ import co.elastic.clients.elasticsearch.indices.CreateIndexResponse;
 import co.elastic.clients.elasticsearch.indices.ElasticsearchIndicesClient;
 import co.elastic.clients.elasticsearch.indices.IndexSettingsAnalysis;
 import co.elastic.clients.json.JsonData;
-import co.elastic.clients.json.jackson.JacksonJsonpMapper;
 import co.elastic.clients.transport.ElasticsearchTransport;
 import co.elastic.clients.transport.rest_client.RestClientTransport;
+import com.github.krazune.esstudy.helper.EsHelper;
 import com.github.krazune.esstudy.products.product.Product;
 import com.github.krazune.esstudy.products.random.product.RandomProductGenerator;
-import org.apache.http.HttpHost;
-import org.elasticsearch.client.RestClient;
 
 import java.io.IOException;
 import java.util.List;
 
 public class Application
 {
-	private static final String ES_HOST = "localhost";
-	private static final int ES_PORT = 9200;
 	private static final String INDEX_NAME = "products";
 	private static final int RANDOM_DOCUMENT_INDICES = 30;
 	private static final String CUSTOM_SYNONYMS_ANALYZER_NAME = "my_synonym_analyzer";
@@ -46,7 +42,7 @@ public class Application
 
 	public static void main(String[] args) throws IOException
 	{
-		try (RestClientTransport transport = createTransport())
+		try (RestClientTransport transport = EsHelper.createTransport())
 		{
 			createIndex(transport);
 			indexDocuments(transport);
@@ -54,16 +50,6 @@ public class Application
 			rangeMatch(transport);
 			tagSalesStatsAggregationSearch(transport);
 		}
-	}
-
-	private static RestClientTransport createTransport()
-	{
-		return new RestClientTransport(
-			RestClient.builder(
-				new HttpHost(ES_HOST, ES_PORT)
-			).build(),
-			new JacksonJsonpMapper()
-		);
 	}
 
 	private static TypeMapping createTypeMapping()
