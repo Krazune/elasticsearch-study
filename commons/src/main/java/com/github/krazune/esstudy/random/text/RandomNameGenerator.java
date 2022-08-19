@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RandomNameGenerator
 {
-	protected static final List<String> FIRST_NAMES = List.of(
+	private static final List<String> FIRST_NAMES = List.of(
 		"Michael",
 		"John",
 		"Peter",
@@ -17,7 +17,7 @@ public class RandomNameGenerator
 		"Emma",
 		"Sophia"
 	);
-	protected static final List<String> SECOND_NAMES = List.of(
+	private static final List<String> SECOND_NAMES = List.of(
 		"Brown",
 		"Jones",
 		"Smith",

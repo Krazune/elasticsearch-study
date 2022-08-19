@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MyInteger
 {
-	protected int myInteger;
+	private int myInteger;
 
 	public MyInteger() {}
 

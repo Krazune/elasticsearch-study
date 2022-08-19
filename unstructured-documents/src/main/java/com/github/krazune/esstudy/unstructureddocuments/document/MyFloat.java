@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MyFloat
 {
-	protected float myFloat;
+	private float myFloat;
 
 	public MyFloat() {}
 

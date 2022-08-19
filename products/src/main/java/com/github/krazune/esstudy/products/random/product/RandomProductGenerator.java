@@ -8,12 +8,12 @@ import java.util.Random;
 
 public class RandomProductGenerator
 {
-	protected final static int MINIMUM_WORDS = 3;
-	protected final static int MAXIMUM_WORDS = 13;
-	protected final static int MINIMUM_SENTENCES = 1;
-	protected final static int MAXIMUM_SENTENCES = 3;
-	protected final static int MINIMUM_SALES = 0;
-	protected final static int MAXIMUM_SALES = 1000;
+	private final static int MINIMUM_WORDS = 3;
+	private final static int MAXIMUM_WORDS = 13;
+	private final static int MINIMUM_SENTENCES = 1;
+	private final static int MAXIMUM_SENTENCES = 3;
+	private final static int MINIMUM_SALES = 0;
+	private final static int MAXIMUM_SALES = 1000;
 
 	public static Product getProduct()
 	{

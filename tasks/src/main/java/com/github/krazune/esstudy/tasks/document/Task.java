@@ -4,8 +4,8 @@ import java.util.List;
 
 public class Task
 {
-	protected String goal;
-	protected List<Action> actions;
+	private String goal;
+	private List<Action> actions;
 
 	public Task() {}
 

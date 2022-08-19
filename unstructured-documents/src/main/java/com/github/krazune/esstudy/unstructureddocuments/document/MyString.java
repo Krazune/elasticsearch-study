@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MyString
 {
-	protected String myString;
+	private String myString;
 
 	public MyString() {}
 

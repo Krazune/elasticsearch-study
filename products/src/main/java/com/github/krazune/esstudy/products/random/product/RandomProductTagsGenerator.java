@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RandomProductTagsGenerator
 {
-	protected static final List<ProductTag> TAGS = List.of(ProductTag.values());
+	private static final List<ProductTag> TAGS = List.of(ProductTag.values());
 
 	public static List<ProductTag> getTags()
 	{

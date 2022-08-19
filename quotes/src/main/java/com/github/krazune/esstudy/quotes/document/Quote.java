@@ -2,8 +2,8 @@ package com.github.krazune.esstudy.quotes.document;
 
 public class Quote
 {
-	protected String quote;
-	protected String author;
+	private String quote;
+	private String author;
 
 	public Quote() {}
 

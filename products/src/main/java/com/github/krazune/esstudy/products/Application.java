@@ -24,26 +24,25 @@ import org.elasticsearch.client.RestClient;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 public class Application
 {
-	protected static final String ES_HOST = "localhost";
-	protected static final int ES_PORT = 9200;
-	protected static final String INDEX_NAME = "products";
-	protected static final int RANDOM_DOCUMENT_INDICES = 30;
-	protected static final String CUSTOM_SYNONYMS_ANALYZER_NAME = "my_synonym_analyzer";
-	protected static final String CUSTOM_SYNONYMS_FILTER_NAME = "my_synonym_filter";
-	protected static final List<String> SYNONYMS = List.of(
+	private static final String ES_HOST = "localhost";
+	private static final int ES_PORT = 9200;
+	private static final String INDEX_NAME = "products";
+	private static final int RANDOM_DOCUMENT_INDICES = 30;
+	private static final String CUSTOM_SYNONYMS_ANALYZER_NAME = "my_synonym_analyzer";
+	private static final String CUSTOM_SYNONYMS_FILTER_NAME = "my_synonym_filter";
+	private static final List<String> SYNONYMS = List.of(
 		"alone, solo",
 		"have, possess"
 	);
-	protected static final String MATCH_QUERY = "solo possess";
-	protected static final int MATCH_QUERY_LIMIT = 2;
-	protected static final int RANGE_QUERY_MINIMUM = 650;
-	protected static final int RANGE_QUERY_MAXIMUM = 775;
-	protected static final String TAG_SALES_TERMS_AGGREGATION_NAME = "my_tag_sales_terms_aggregation";
-	protected static final String TAG_SALES_STATS_AGGREGATION_NAME = "my_tag_sales_stats_aggregation";
+	private static final String MATCH_QUERY = "solo possess";
+	private static final int MATCH_QUERY_LIMIT = 2;
+	private static final int RANGE_QUERY_MINIMUM = 650;
+	private static final int RANGE_QUERY_MAXIMUM = 775;
+	private static final String TAG_SALES_TERMS_AGGREGATION_NAME = "my_tag_sales_terms_aggregation";
+	private static final String TAG_SALES_STATS_AGGREGATION_NAME = "my_tag_sales_stats_aggregation";
 
 	public static void main(String[] args) throws IOException
 	{
@@ -57,7 +56,7 @@ public class Application
 		}
 	}
 
-	protected static RestClientTransport createTransport()
+	private static RestClientTransport createTransport()
 	{
 		return new RestClientTransport(
 			RestClient.builder(
@@ -67,7 +66,7 @@ public class Application
 		);
 	}
 
-	protected static TypeMapping createTypeMapping()
+	private static TypeMapping createTypeMapping()
 	{
 		return new TypeMapping.Builder()
 			.dynamic(DynamicMapping.Strict)
@@ -87,7 +86,7 @@ public class Application
 			.build();
 	}
 
-	protected static IndexSettingsAnalysis createAnalysisSettings()
+	private static IndexSettingsAnalysis createAnalysisSettings()
 	{
 		return new IndexSettingsAnalysis.Builder()
 			.analyzer(
@@ -113,7 +112,7 @@ public class Application
 			.build();
 	}
 
-	protected static void createIndex(ElasticsearchTransport transport) throws IOException
+	private static void createIndex(ElasticsearchTransport transport) throws IOException
 	{
 		ElasticsearchIndicesClient indicesClient = new ElasticsearchIndicesClient(transport);
 
@@ -150,7 +149,7 @@ public class Application
 		}
 	}
 
-	protected static void indexDocuments(RestClientTransport transport) throws IOException
+	private static void indexDocuments(RestClientTransport transport) throws IOException
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 
@@ -171,7 +170,7 @@ public class Application
 		System.out.println("All documents indexed.\n");
 	}
 
-	protected static void queryMatch(RestClientTransport transport) throws IOException
+	private static void queryMatch(RestClientTransport transport) throws IOException
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 		System.out.println("Matching all " + MATCH_QUERY_LIMIT + " first documents, with a quote that matches the search \"" + MATCH_QUERY + "\".");

@@ -6,10 +6,10 @@ import com.github.krazune.esstudy.random.text.RandomNameGenerator;
 
 public class RandomQuoteGenerator
 {
-	protected final static int MINIMUM_WORDS = 3;
-	protected final static int MAXIMUM_WORDS = 13;
-	protected final static int MINIMUM_SENTENCES = 1;
-	protected final static int MAXIMUM_SENTENCES = 2;
+	private final static int MINIMUM_WORDS = 3;
+	private final static int MAXIMUM_WORDS = 13;
+	private final static int MINIMUM_SENTENCES = 1;
+	private final static int MAXIMUM_SENTENCES = 2;
 
 	public static Quote getQuote()
 	{

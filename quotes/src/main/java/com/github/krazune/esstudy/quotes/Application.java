@@ -23,12 +23,12 @@ import java.io.IOException;
 
 public class Application
 {
-	protected static final String ES_HOST = "localhost";
-	protected static final int ES_PORT = 9200;
-	protected static final String INDEX_NAME = "quotes";
-	protected static final int RANDOM_DOCUMENT_INDICES = 10;
-	protected static final int MATCH_ALL_LIMIT = 10;
-	protected static final int MATCH_LIMIT = 5;
+	private static final String ES_HOST = "localhost";
+	private static final int ES_PORT = 9200;
+	private static final String INDEX_NAME = "quotes";
+	private static final int RANDOM_DOCUMENT_INDICES = 10;
+	private static final int MATCH_ALL_LIMIT = 10;
+	private static final int MATCH_LIMIT = 5;
 
 	public static void main(String[] args) throws IOException
 	{
@@ -41,7 +41,7 @@ public class Application
 		}
 	}
 
-	protected static RestClientTransport createTransport()
+	private static RestClientTransport createTransport()
 	{
 		return new RestClientTransport(
 			RestClient.builder(
@@ -51,7 +51,7 @@ public class Application
 		);
 	}
 
-	protected static TypeMapping createTypeMapping()
+	private static TypeMapping createTypeMapping()
 	{
 		return new TypeMapping.Builder()
 			.dynamic(DynamicMapping.Strict)
@@ -60,7 +60,7 @@ public class Application
 			.build();
 	}
 
-	protected static void createIndex(ElasticsearchTransport transport) throws IOException
+	private static void createIndex(ElasticsearchTransport transport) throws IOException
 	{
 		ElasticsearchIndicesClient indicesClient = new ElasticsearchIndicesClient(transport);
 
@@ -93,7 +93,7 @@ public class Application
 		}
 	}
 
-	protected static void indexDocuments(RestClientTransport transport) throws IOException
+	private static void indexDocuments(RestClientTransport transport) throws IOException
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 
@@ -114,7 +114,7 @@ public class Application
 		System.out.println("All documents indexed.\n");
 	}
 
-	protected static void queryMatchAll(RestClientTransport transport) throws IOException
+	private static void queryMatchAll(RestClientTransport transport) throws IOException
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 
@@ -139,7 +139,7 @@ public class Application
 		System.out.println();
 	}
 
-	protected static void queryMatch(RestClientTransport transport) throws IOException
+	private static void queryMatch(RestClientTransport transport) throws IOException
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
 		String matchWord = RandomWordGenerator.getWord();

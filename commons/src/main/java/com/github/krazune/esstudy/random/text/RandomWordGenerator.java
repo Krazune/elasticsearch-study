@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RandomWordGenerator
 {
-	protected static final List<String> WORDS = List.of(
+	private static final List<String> WORDS = List.of(
 		"lawgiver",
 		"there",
 		"save",

@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Product
 {
-	protected String name;
-	protected String description;
-	protected int sales;
-	protected List<ProductTag> tags;
+	private String name;
+	private String description;
+	private int sales;
+	private List<ProductTag> tags;
 
 	public Product() {}
 

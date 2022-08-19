@@ -6,7 +6,7 @@ import java.util.List;
 
 public class RandomThingGenerator
 {
-	protected static final List<String> ADJECTIVES = List.of(
+	private static final List<String> ADJECTIVES = List.of(
 		"red",
 		"green",
 		"blue",
@@ -28,7 +28,7 @@ public class RandomThingGenerator
 		"plain"
 	);
 
-	protected static final List<String> THINGS = List.of(
+	private static final List<String> THINGS = List.of(
 		"mouse",
 		"keyboard",
 		"laptop",

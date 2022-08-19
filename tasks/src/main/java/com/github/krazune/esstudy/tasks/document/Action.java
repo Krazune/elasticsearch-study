@@ -2,8 +2,8 @@ package com.github.krazune.esstudy.tasks.document;
 
 public class Action
 {
-	protected String description;
-	protected boolean isComplete;
+	private String description;
+	private boolean isComplete;
 
 	public Action() {}
 
