@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class RandomPicker
 {
-	public static <T> T get(List<T> list)
+	public static <T> T pick(List<T> list)
 	{
 		return list.get(new Random().nextInt(0, list.size()));
 	}

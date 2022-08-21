@@ -17,12 +17,12 @@ public class RandomNameGenerator
 
 	public static String getFirstName()
 	{
-		return RandomPicker.get(FIRST_NAMES);
+		return RandomPicker.pick(FIRST_NAMES);
 	}
 
 	public static String getSecondName()
 	{
-		return RandomPicker.get(SECOND_NAMES);
+		return RandomPicker.pick(SECOND_NAMES);
 	}
 
 	public static String getName()

@@ -19,6 +19,6 @@ public class RandomWordGenerator
 
 	public static String getWord()
 	{
-		return RandomPicker.get(WORDS);
+		return RandomPicker.pick(WORDS);
 	}
 }

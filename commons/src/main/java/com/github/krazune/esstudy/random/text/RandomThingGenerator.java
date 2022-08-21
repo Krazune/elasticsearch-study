@@ -18,8 +18,8 @@ public class RandomThingGenerator
 
 	public static String getThing()
 	{
-		String adjective = RandomPicker.get(ADJECTIVES);
-		String thing = RandomPicker.get(THINGS);
+		String adjective = RandomPicker.pick(ADJECTIVES);
+		String thing = RandomPicker.pick(THINGS);
 
 		return adjective.substring(0, 1).toUpperCase() + adjective.substring(1) + ' ' + thing;
 	}

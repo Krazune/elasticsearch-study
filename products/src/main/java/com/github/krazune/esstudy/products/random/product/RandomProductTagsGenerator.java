@@ -18,7 +18,7 @@ public class RandomProductTagsGenerator
 		{
 			// The chances of adding the tag is 1/n, where "n" is the amount of tags.
 			// This is arbitrary, no reason to pick a tag this way, besides already having RandomPicker.
-			if (RandomPicker.get(TAGS) == TAGS.get(i))
+			if (RandomPicker.pick(TAGS) == TAGS.get(i))
 			{
 				tags.add(TAGS.get(i));
 			}
