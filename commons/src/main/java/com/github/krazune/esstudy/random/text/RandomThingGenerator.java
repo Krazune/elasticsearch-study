@@ -7,39 +7,13 @@ import java.util.List;
 public class RandomThingGenerator
 {
 	private static final List<String> ADJECTIVES = List.of(
-		"red",
-		"green",
-		"blue",
-		"cyan",
-		"yellow",
-		"white",
-		"yellow",
-		"big",
-		"small",
-		"medium",
-		"weird",
-		"hard",
-		"soft",
-		"tall",
-		"short",
-		"long",
-		"wide",
-		"narrow",
-		"plain"
+		"red", "green", "blue", "cyan", "yellow", "white", "yellow", "big",
+		"small", "medium", "weird", "hard", "soft", "tall", "short", "long",
+		"wide", "narrow", "plain"
 	);
-
 	private static final List<String> THINGS = List.of(
-		"mouse",
-		"keyboard",
-		"laptop",
-		"desktop",
-		"screen",
-		"speakers",
-		"microphone",
-		"headset",
-		"webcam",
-		"cable",
-		"printer"
+		"mouse", "keyboard", "laptop", "desktop", "screen", "speakers",
+		"microphone", "headset", "webcam", "cable", "printer"
 	);
 
 	public static String getThing()
