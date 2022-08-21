@@ -146,7 +146,7 @@ public class Application
 			IndexResponse indexResponse = esClient.index(
 				irb -> irb
 					.index(INDEX_NAME)
-					.refresh(Refresh.True) // Refreshes the affected shards to make this operation visible to search. WaitFor would take too long to index all documents.
+					.refresh(Refresh.True)
 					.document(RandomProductGenerator.getProduct())
 			);
 

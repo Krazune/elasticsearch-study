@@ -50,7 +50,7 @@ public class Application
 			drb -> drb
 				.index(INDEX_NAME)
 				.id(DELETE_DOCUMENT_ID)
-				.refresh(Refresh.True) // Refreshes the affected shards to make this operation visible to search. WaitFor would take too long to index all documents.
+				.refresh(Refresh.True)
 		);
 
 		System.out.println("Response:" + deleteResponse.toString());
@@ -105,7 +105,7 @@ public class Application
 				esAsyncClient.index(
 					irb -> irb
 						.index(INDEX_NAME)
-						.refresh(Refresh.True) // Refreshes the affected shards to make this operation visible to search. WaitFor would take too long to index all documents.
+						.refresh(Refresh.True)
 						.id(id)
 						.document(RandomDocumentObject.getDocumentObject())
 				)

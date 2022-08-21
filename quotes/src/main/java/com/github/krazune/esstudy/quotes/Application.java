@@ -41,7 +41,7 @@ public class Application
 	{
 		return new TypeMapping.Builder()
 			.dynamic(DynamicMapping.Strict)
-			.properties("quote", pb -> pb.text(tpb -> tpb))
+			.properties("quote", pb -> pb.text(tpb -> tpb)) // yarr
 			.properties("author", pb -> pb.text(tpb -> tpb))
 			.build();
 	}
@@ -90,7 +90,7 @@ public class Application
 			IndexResponse indexResponse = esClient.index(
 				irb -> irb
 					.index(INDEX_NAME)
-					.refresh(Refresh.True) // Refreshes the affected shards to make this operation visible to search. WaitFor would take too long to index all documents.
+					.refresh(Refresh.True)
 					.document(RandomQuoteGenerator.getQuote())
 			);
 
