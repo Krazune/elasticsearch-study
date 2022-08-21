@@ -8,24 +8,24 @@ import java.util.Random;
 
 public class RandomProductGenerator
 {
-	private final static int MINIMUM_WORDS = 3;
-	private final static int MAXIMUM_WORDS = 13;
-	private final static int MINIMUM_SENTENCES = 1;
-	private final static int MAXIMUM_SENTENCES = 3;
-	private final static int MINIMUM_SALES = 0;
-	private final static int MAXIMUM_SALES = 1000;
+	private final static int MIN_WORDS = 3;
+	private final static int MAX_WORDS = 13;
+	private final static int MIN_SENTENCES = 1;
+	private final static int MAX_SENTENCES = 3;
+	private final static int MIN_SALES = 0;
+	private final static int MAX_SALES = 1000;
 
 	public static Product getProduct()
 	{
 		return new Product(
 			RandomThingGenerator.getThing(),
 			RandomGibberishGenerator.getGibberish(
-				MINIMUM_WORDS,
-				MAXIMUM_WORDS,
-				MINIMUM_SENTENCES,
-				MAXIMUM_SENTENCES
+				MIN_WORDS,
+				MAX_WORDS,
+				MIN_SENTENCES,
+				MAX_SENTENCES
 			),
-			new Random().nextInt(MINIMUM_SALES, MAXIMUM_SALES + 1),
+			new Random().nextInt(MIN_SALES, MAX_SALES + 1),
 			RandomProductTagsGenerator.getTags()
 		);
 	}

@@ -32,14 +32,14 @@ public class RandomGibberishGenerator
 		return sentence + '.';
 	}
 
-	public static String getGibberish(int minimumWordPerSentenceCount, int maximumWordPerSentenceCount, int minimumSentenceCount, int maximumSentenceCount)
+	public static String getGibberish(int minWordPerSentenceCount, int maxWordPerSentenceCount, int minSentenceCount, int maxSentenceCount)
 	{
 		String gibberish = "";
-		int sentenceCount = new Random().nextInt(minimumSentenceCount, maximumSentenceCount + 1);
+		int sentenceCount = new Random().nextInt(minSentenceCount, maxSentenceCount + 1);
 
 		for (int i = 0; i < sentenceCount; ++i)
 		{
-			String sentence = getGibberishSentence(new Random().nextInt(minimumWordPerSentenceCount, maximumWordPerSentenceCount + 1));
+			String sentence = getGibberishSentence(new Random().nextInt(minWordPerSentenceCount, maxWordPerSentenceCount + 1));
 
 			if (i > 0)
 			{

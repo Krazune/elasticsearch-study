@@ -35,8 +35,8 @@ public class Application
 	);
 	private static final String MATCH_QUERY = "solo possess";
 	private static final int MATCH_QUERY_SIZE = 2;
-	private static final int RANGE_QUERY_MINIMUM = 650;
-	private static final int RANGE_QUERY_MAXIMUM = 775;
+	private static final int RANGE_QUERY_MIN = 650;
+	private static final int RANGE_QUERY_MAX = 775;
 	private static final String TAG_SALES_TERMS_AGGREGATION_NAME = "my_tag_sales_terms_aggregation";
 	private static final String TAG_SALES_STATS_AGGREGATION_NAME = "my_tag_sales_stats_aggregation";
 
@@ -191,7 +191,7 @@ public class Application
 	private static void rangeMatch(RestClientTransport transport) throws IOException
 	{
 		ElasticsearchClient esClient = new ElasticsearchClient(transport);
-		System.out.println("Matching products with sales between " + RANGE_QUERY_MINIMUM + " and " + RANGE_QUERY_MAXIMUM + '.');
+		System.out.println("Matching products with sales between " + RANGE_QUERY_MIN + " and " + RANGE_QUERY_MAX + '.');
 
 		SearchResponse<Product> matchDocuments = esClient.search(
 			srb -> srb
@@ -202,8 +202,8 @@ public class Application
 						.range(
 							rqb -> rqb
 								.field("sales")
-								.gte(JsonData.of(RANGE_QUERY_MINIMUM))
-								.lte(JsonData.of(RANGE_QUERY_MAXIMUM))
+								.gte(JsonData.of(RANGE_QUERY_MIN))
+								.lte(JsonData.of(RANGE_QUERY_MAX))
 						)
 				),
 			Product.class
