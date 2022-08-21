@@ -8,24 +8,28 @@ public class RandomGibberishGenerator
 	{
 		String sentence = "";
 
+		if (wordCount <= 0)
+		{
+			return sentence;
+		}
+
 		for (int i = 0; i < wordCount; ++i)
 		{
 			String word = RandomWordGenerator.getWord();
 
-			if (i != 0)
+			if (i == 0)
+			{
+				word = word.substring(0, 1).toUpperCase() + word.substring(1);
+			}
+			else
 			{
 				word = ' ' + word;
-			}
-
-			if (i == wordCount - 1)
-			{
-				word += '.';
 			}
 
 			sentence += word;
 		}
 
-		return sentence.substring(0, 1).toUpperCase() + sentence.substring(1);
+		return sentence + '.';
 	}
 
 	public static String getGibberish(int minimumWordPerSentenceCount, int maximumWordPerSentenceCount, int minimumSentenceCount, int maximumSentenceCount)
