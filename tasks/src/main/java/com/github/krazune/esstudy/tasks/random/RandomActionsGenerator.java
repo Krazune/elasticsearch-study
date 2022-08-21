@@ -19,7 +19,12 @@ public class RandomActionsGenerator
 	public static Action getAction()
 	{
 		return new Action(
-			RandomGibberishGenerator.getGibberish(MINIMUM_WORDS, MAXIMUM_WORDS, MINIMUM_SENTENCES, MAXIMUM_SENTENCES),
+			RandomGibberishGenerator.getGibberish(
+				MINIMUM_WORDS,
+				MAXIMUM_WORDS,
+				MINIMUM_SENTENCES,
+				MAXIMUM_SENTENCES
+			),
 			new Random().nextBoolean()
 		);
 	}
