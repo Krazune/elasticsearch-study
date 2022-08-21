@@ -29,21 +29,4 @@ public class RandomNameGenerator
 	{
 		return getFirstName() + " " + getSecondName();
 	}
-
-	public static String getName(int firstNameCount, int secondNameCount)
-	{
-		String name = "";
-
-		for (int i = 0; i < firstNameCount; ++i)
-		{
-			name += getFirstName();
-		}
-
-		for (int i = 0; i < secondNameCount; ++i)
-		{
-			name += getSecondName();
-		}
-
-		return name;
-	}
 }
